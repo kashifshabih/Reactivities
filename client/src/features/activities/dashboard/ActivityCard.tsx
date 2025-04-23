@@ -9,9 +9,10 @@ import {
 
 type Props = {
   activity: Activity;
+  selectActivity: (id: string) => void;
 };
 
-export default function ActivityCard({ activity }: Props) {
+export default function ActivityCard({ activity, selectActivity }: Props) {
   return (
     <Card sx={{ borderRadius: 3 }}>
       <CardContent>
@@ -29,7 +30,11 @@ export default function ActivityCard({ activity }: Props) {
       >
         <Chip label={activity.category} variant="outlined" />
         {/* <Box display="flex" gap={3}> */}
-        <Button size="medium" variant="contained">
+        <Button
+          onClick={() => selectActivity(activity.id)}
+          size="medium"
+          variant="contained"
+        >
           View
         </Button>
         {/* <Button
